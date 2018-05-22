@@ -4,7 +4,7 @@ const morgan = require('morgan')
 const app = express()
 const data = require('./cohorts.js')
 
-const port = 6000 || process.env.PORT
+const port = process.env.PORT || 6000
 
 app.use(morgan('dev'))
 // app.use(cors())
