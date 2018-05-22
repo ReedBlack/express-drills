@@ -1,14 +1,19 @@
 const express = require('express');
-const cors = require('cors')
+// const cors = require('cors')
 const morgan = require('morgan')
 const app = express()
-
 const data = require('./cohorts.js')
 
 const port = 6000 || process.env.PORT
 
 app.use(morgan('dev'))
-app.use(cors())
+// app.use(cors())
+
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*')
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
+    next()
+})
 
 app.get("/", (request, response) => {
     response.status(200).json({
