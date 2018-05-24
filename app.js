@@ -1,5 +1,4 @@
 const express = require('express');
-// const cors = require('cors')
 const morgan = require('morgan')
 const app = express()
 const data = require('./cohorts.js')
@@ -7,7 +6,7 @@ const data = require('./cohorts.js')
 const port = process.env.PORT || 6000
 
 app.use(morgan('dev'))
-// app.use(cors())
+
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*')
@@ -47,5 +46,3 @@ function getDataById(data, id) {
     }
     return null;
 }
-
-// console.log(getDataById(data, 1))
